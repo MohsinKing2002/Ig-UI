@@ -3,10 +3,23 @@ import Form from "react-bootstrap/Form";
 import Card from "react-bootstrap/Card";
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
-import { useEffect } from "react";
+import Users from "../apis/Users";
 
-function Search({ users }) {
+function Search() {
   const [name, setName] = useState("");
+  const [users, setUsers] = useState([]);
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+    const arr = [];
+    Users.forEach((item) => {
+      if (item.name.toLowerCase().includes(name.toLowerCase())) {
+        arr.push(item);
+      }
+    });
+
+    setUsers(arr);
+  };
 
   return (
     <Card className="text-center mobile-card">
@@ -22,7 +35,7 @@ function Search({ users }) {
       <Card.Body>
         <Card.Title>Search Users</Card.Title>
         <br />
-        <Form>
+        <Form onSubmit={handleSearch}>
           <Form.Group className="mb-4" controlId="formBasicEmail">
             <Form.Control
               name="name"
@@ -48,11 +61,11 @@ function Search({ users }) {
         {users && users.length > 0
           ? users.map((item) => (
               <NavLink
-                key={item._id}
-                to={`/users/${item._id}`}
+                key={item.userId}
+                to={`/users/${item.userId}`}
                 className="link users user d-flex align-items-center"
               >
-                <img src={item.avatar.url} alt="" />
+                <img src={item.avatar} alt="" />
                 <h4>{item.name}</h4>
               </NavLink>
             ))
