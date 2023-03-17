@@ -196,35 +196,40 @@ p{
   width: 35% !important;
 }
 
+.chat{
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  text-align: start;
+}
+
+.chat span{
+  font-weight: bold;
+  margin-right: 8px;
+  color: darkblue;
+}
+
+.msg_btn{
+  /* border: none;
+  outline: none; */
+  display: inline-block
+}
+
+.me{
+  background-color: #0dcaf045;
+}
+
+.bot{
+  background-color: #a9a9a95c;
+}
+
 .message_icon {
   font-size: 38px !important;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
 }
 .message_icon:hover{
-  background-color: rgba(0, 255, 255, 0.83) !important;
-}
-
-.message-content h4{
-  border-radius: 4px;
-  color: azure;
-  display: inline-block;
-  padding: 4px 12px;
-  font-size: 17px;
-  margin-bottom: 6px !important;
-}
-
-#start{
-  text-align: start;
-}
-#end{
-  text-align: end;
-}
-#me{
-  background-color: #34346d;
-}
-#other{
-  background-color: seagreen;
+  background-color: rgba(176, 192, 231, 0.422) !important;
 }
 
 .animate-live{
